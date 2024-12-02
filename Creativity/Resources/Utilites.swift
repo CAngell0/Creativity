@@ -9,6 +9,6 @@ import Foundation
 
 //MARK: - URL's for documents
 
-let allHaiku = Bundle.main.url(forResource: "", withExtension: "pdf")
+let allHaiku = Bundle.main.url(forResource: "HaikuDocument", withExtension: "pdf")!
 
 //MARK: - Methods for...
