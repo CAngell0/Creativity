@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Carson - Demo.png",
+      "filename" : "BlueWaves.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "BlueWaves2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "BlueWaves3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
