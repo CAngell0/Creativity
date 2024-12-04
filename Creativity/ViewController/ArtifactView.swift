@@ -14,12 +14,17 @@ struct ArtifactView: View {
             VStack {
                 Text(artifact.title)
                     .font(.headline)
+                    .accessibilityLabel("Artifact Title")
+                    .accessibilityValue(artifact.title)
                 Spacer()
                 Image(artifact.fileName)
                     .resizable()
                     .scaledToFit()
+                    .accessibilityLabel("Artifact Image")
                 Text(artifact.description)
                     .font(.caption2)
+                    .accessibilityLabel("Artifact Description")
+                    .accessibilityValue(artifact.description)
             }
         }
     }

@@ -21,15 +21,21 @@ struct CreativityView: View {
                     Section("Haikus", isExpanded: $isShowingHaikus) {
                         ForEach(loadHaikus()){ haiku in
                             NavigationLink(haiku.title, destination: ArtifactView(artifact: haiku))
+                                .accessibilityLabel("Link for \(haiku.title)")
+                                .accessibilityValue(haiku.title)
                         }
                     }
                     Section("Artwork Pieces", isExpanded: $isShowingArtworks) {
                         ForEach(loadArtworks()){ artwork in
                             NavigationLink(artwork.title, destination: ArtifactView(artifact: artwork))
+                                .accessibilityLabel("Link for \(artwork.title)")
+                                .accessibilityValue(artwork.title)
                         }
                     }
                     Section("Drawings", isExpanded: $isShowingDrawings) {
                         NavigationLink("Turtle Drawing", destination: TurtleView())
+                            .accessibilityLabel("Link to turtlem drawing")
+                            .accessibilityValue("Turtle Drawing")
                     }
                 }
                 .listStyle(.sidebar)
