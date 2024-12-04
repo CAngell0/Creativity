@@ -12,6 +12,7 @@ struct CreativityView: View {
     
     @State private var isShowingHaikus : Bool = false
     @State private var isShowingArtworks : Bool = false
+    @State private var isShowingDrawings : Bool = false
     
     var body: some View {
         VStack {
@@ -26,6 +27,9 @@ struct CreativityView: View {
                         ForEach(loadArtworks()){ artwork in
                             NavigationLink(artwork.title, destination: ArtifactView(artifact: artwork))
                         }
+                    }
+                    Section("Drawings", isExpanded: $isShowingDrawings) {
+                        NavigationLink("Turtle Drawing", destination: TurtleView())
                     }
                 }
                 .listStyle(.sidebar)
