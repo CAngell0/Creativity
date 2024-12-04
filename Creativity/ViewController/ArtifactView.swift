@@ -8,11 +8,23 @@
 import SwiftUI
 
 struct ArtifactView: View {
+    let artifact : Artifact
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            VStack {
+                Text(artifact.title)
+                    .font(.headline)
+                Spacer()
+                Image(artifact.fileName)
+                    .resizable()
+                    .scaledToFit()
+                Text(artifact.description)
+                    .font(.caption2)
+            }
+        }
     }
 }
 
 #Preview ("Displayes an artifact"){
-    ArtifactView()
+    ArtifactView(artifact: sampleArtifact)
 }
