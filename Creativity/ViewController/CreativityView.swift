@@ -10,15 +10,21 @@ import SwiftUI
 struct CreativityView: View {
     let artifacts : [Artifact] = loadArtworks()
     
-    @State private var isShowingArtifacts : Bool = false
+    @State private var isShowingHaikus : Bool = false
+    @State private var isShowingArtworks : Bool = false
     
     var body: some View {
         VStack {
             NavigationStack {
                 List {
-                    Section("Artifacts", isExpanded: $isShowingArtifacts) {
-                        ForEach(artifacts){ artifact in
-                            NavigationLink(artifact.title, destination: ArtifactView(artifact: artifact))
+                    Section("Haikus", isExpanded: $isShowingHaikus) {
+                        ForEach(loadHaikus()){ haiku in
+                            NavigationLink(haiku.title, destination: ArtifactView(artifact: haiku))
+                        }
+                    }
+                    Section("Artwork Pieces", isExpanded: $isShowingArtworks) {
+                        ForEach(loadArtworks()){ artwork in
+                            NavigationLink(artwork.title, destination: ArtifactView(artifact: artwork))
                         }
                     }
                 }
