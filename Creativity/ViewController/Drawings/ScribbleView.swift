@@ -9,7 +9,9 @@ import SwiftUI
 
 struct ScribbleView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Scribble()
+        Text("Hello")
+        
     }
 }
 
@@ -38,6 +40,22 @@ struct Scribble : Shape {
         let path = drawScribble(within: rect)
         
         return path
+    }
+}
+
+struct House : Shape {
+    func path(in rect: CGRect) -> Path {
+        var housePath = Path()
+        
+        housePath.move(to: CGPoint(x: rect.maxX - 100, y: rect.maxY - 100))
+        housePath.addLine(to: CGPoint(x: rect.maxX - 10, y: rect.maxY - 100))
+        housePath.addLine(to: CGPoint(x: rect.maxX - 10, y: rect.maxY - 150))
+        housePath.addLine(to: CGPoint(x: rect.maxX - 45, y: rect.maxY - 175))
+        housePath.addLine(to: CGPoint(x: rect.maxX - 100, y: rect.maxY - 150))
+        
+        housePath.closeSubpath()
+        
+        return housePath
     }
 }
 
