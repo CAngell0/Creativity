@@ -9,7 +9,7 @@ import Foundation
 
 //MARK: - URL's for documents
 
-let allHaiku = Bundle.main.url(forResource: "HaikuDocument", withExtension: "pdf")!
+let haikuDocument = Bundle.main.url(forResource: "Haikus", withExtension: "pdf")!
 
 //MARK: - Sample Artifact
 

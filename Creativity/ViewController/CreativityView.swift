@@ -13,6 +13,7 @@ struct CreativityView: View {
     @State private var isShowingHaikus : Bool = false
     @State private var isShowingArtworks : Bool = false
     @State private var isShowingDrawings : Bool = false
+    @State private var isShowingDocuments : Bool = false
     
     var body: some View {
         VStack {

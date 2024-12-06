@@ -40,5 +40,5 @@ struct PDFKitRepresentedView : UIViewRepresentable {
 }
 
 #Preview ("CustomPDFView"){
-    CustomPDFView(displayedPDFUrl: allHaiku)
+    CustomPDFView(displayedPDFUrl: haikuDocument)
 }
