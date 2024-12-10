@@ -39,3 +39,12 @@ func loadHaikus() -> [Artifact] {
 
 //MARK: - Custom Color Section
 let blue : Color = Color(red: (66.0 / 255.0), green: (144.0 / 255.0), blue: (245.0 / 255.0))
+
+func makeBlueShade() -> Color {
+    
+    let redPercent = Double((Int(arc4random()) % 132) + 2) / 255.0
+    let greenPercent = Double((Int(arc4random()) % 101) + 73) / 255.0
+    let bluePercent = Double((Int(arc4random()) % 59) + 168) / 255.0
+    
+    return Color(red: redPercent, green: greenPercent, blue: bluePercent)
+}
