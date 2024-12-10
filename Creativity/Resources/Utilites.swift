@@ -83,7 +83,7 @@ func horizontalMirror(of path : Path, in rect : CGRect) -> Path {
     
     mirroredPath = mirroredPath.applying(CGAffineTransform(translationX: 0, y: -rect.origin.y))
     mirroredPath = mirroredPath.applying(CGAffineTransform(scaleX: 1, y: -1))
-    mirroredPath = mirroredPath.applying(CGAffineTransform(translationX: 0, y: rect.origin.y + rect.width))
+    mirroredPath = mirroredPath.applying(CGAffineTransform(translationX: 0, y: rect.origin.y + rect.height))
     
     return mirroredPath
 }
