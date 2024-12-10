@@ -48,3 +48,42 @@ func makeBlueShade() -> Color {
     
     return Color(red: redPercent, green: greenPercent, blue: bluePercent)
 }
+
+
+//MARK: - Mirroring
+
+/// Creates a vertical mirror transformation of a supplied path.
+/// Uses Affine transformation to accomplish this.
+/// - Parameters:
+///   - path: Path to mirror
+///   - rect: The bounds to reflect in
+/// - Returns: The reflected path in the supplied bounds
+func verticalMirror(of path : Path, in rect: CGRect) -> Path {
+    var mirroredPath = Path()
+    
+    mirroredPath.addPath(path)
+    
+    mirroredPath = mirroredPath.applying(CGAffineTransform(translationX: -rect.origin.x, y: 0))
+    mirroredPath = mirroredPath.applying(CGAffineTransform(scaleX: -1, y: 1))
+    mirroredPath = mirroredPath.applying(CGAffineTransform(translationX: rect.origin.x + rect.width, y: 0))
+    
+    return mirroredPath
+}
+
+/// Creates a horizontal mirror transformation of a supplied path.
+/// Uses Affine tansformation to accomplish this
+/// - Parameters:
+///   - path: Path to mirror
+///   - rect: The bounds to reflect in
+/// - Returns: The reflected path in the supplied bounds
+func horizontalMirror(of path : Path, in rect : CGRect) -> Path {
+    var mirroredPath = Path()
+    
+    mirroredPath.addPath(path);
+    
+    mirroredPath = mirroredPath.applying(CGAffineTransform(translationX: 0, y: -rect.origin.y))
+    mirroredPath = mirroredPath.applying(CGAffineTransform(scaleX: 1, y: -1))
+    mirroredPath = mirroredPath.applying(CGAffineTransform(translationX: 0, y: rect.origin.y + rect.width))
+    
+    return mirroredPath
+}
