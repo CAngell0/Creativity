@@ -35,8 +35,17 @@ struct CreativityView: View {
                     }
                     Section("Drawings", isExpanded: $isShowingDrawings) {
                         NavigationLink("Turtle Drawing", destination: TurtleView())
-                            .accessibilityLabel("Link to turtlem drawing")
+                            .accessibilityLabel("Link to turtle drawing")
                             .accessibilityValue("Turtle Drawing")
+                        NavigationLink("Scribble Drawing 1", destination: ScribbleView())
+                            .accessibilityLabel("Link to scribble drawing 1")
+                            .accessibilityValue("Scribble Drawing 1")
+                        NavigationLink("Scribble Drawing 2", destination: ScribbleView())
+                            .accessibilityLabel("Link to scribble drawing 2")
+                            .accessibilityValue("Scribble Drawing 2")
+                        NavigationLink("Scribble Drawing 3", destination: ScribbleView())
+                            .accessibilityLabel("Link to scribble drawing 3")
+                            .accessibilityValue("Scribble Drawing 3")
                     }
                 }
                 .listStyle(.sidebar)

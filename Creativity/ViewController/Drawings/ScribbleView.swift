@@ -8,10 +8,30 @@
 import SwiftUI
 
 struct ScribbleView: View {
+    let scribbles = [Scribble(), Scribble(), Scribble(), Scribble(), Scribble(), Scribble(), Scribble(), Scribble(), Scribble(), Scribble()]
+    let colors : [Color] = [
+        Color(white: 0.1),
+        Color(white: 0.2),
+        Color(white: 0.3),
+        Color(white: 0.4),
+        Color(white: 0.5),
+        Color(red: 0.918, green: 0.323, blue: 0.205),
+        Color(red: 0.918, green: 0.323, blue: 0.205)
+    ]
+    var house = House()
+    
+    
     var body: some View {
-        Scribble()
-        Text("Hello")
-        
+        ZStack {
+            ForEach(scribbles.indices, id: \.self) { index in
+                let randomColorIndex = Int(arc4random()) % colors.count
+                scribbles[index].stroke(colors[randomColorIndex], lineWidth: CGFloat(arc4random() % 3))
+            }
+            Scribble()
+                .stroke(Color(UIColor(white: 1, alpha: 1)))
+            House()
+                .stroke(.black, lineWidth: 5)
+        }
     }
 }
 

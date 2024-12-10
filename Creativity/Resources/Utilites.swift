@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 //MARK: - URL's for documents
 
@@ -36,4 +37,5 @@ func loadHaikus() -> [Artifact] {
     return haikus
 }
 
-//MARK: - Methods for...
+//MARK: - Custom Color Section
+let blue : Color = Color(red: (66.0 / 255.0), green: (144.0 / 255.0), blue: (245.0 / 255.0))
