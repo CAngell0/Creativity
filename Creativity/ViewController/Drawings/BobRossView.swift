@@ -263,6 +263,13 @@ struct MultiSimpleShape : Shape {
             )
             path.addPath(makeSimpleShape(in: rect, position: pos))
         }
+        for _ in 1...3 {
+            let pos = CGPoint(
+                x: Int(arc4random()) % Int(rect.maxX),
+                y: Int(arc4random()) % Int(rect.maxY)
+            )
+            path.addPath(makeMirroredSimpleShape(in: rect, position: pos))
+        }
         
         return path
     }
@@ -340,6 +347,10 @@ struct MultiSimpleShape : Shape {
         returnPath.addPath(secondPath)
         
         return returnPath
+    }
+    
+    func makeMirroredSimpleShape(in rect: CGRect, position pos: CGPoint) -> Path {
+        return verticalMirror(of: makeSimpleShape(in: rect, position: pos), in: rect)
     }
 }
 
