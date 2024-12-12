@@ -163,6 +163,13 @@ struct MultiComplexShape : Shape {
             )
             path.addPath(makeComplexShape(in: rect, position: pos))
         }
+        for _ in 1...3 {
+            let pos = CGPoint(
+                x: Int(arc4random()) % Int(rect.maxX),
+                y: Int(arc4random()) % Int(rect.maxY)
+            )
+            path.addPath(makeMirroredComplexShape(in: rect, position: pos))
+        }
         
         return path
     }
@@ -235,6 +242,10 @@ struct MultiComplexShape : Shape {
         path.closeSubpath()
         
         return path
+    }
+    
+    func makeMirroredComplexShape(in rect: CGRect, position pos: CGPoint) -> Path {
+        return verticalMirror(of: makeComplexShape(in: rect, position: pos), in: rect)
     }
 }
 
