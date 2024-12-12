@@ -9,8 +9,18 @@ import SwiftUI
 
 struct SpirographView: View {
     var body: some View {
-        Spirograph()
-            .stroke(style: StrokeStyle(lineWidth: 1))
+        VStack {
+            Spirograph(scalar: 3, increment: 0.1, repetitions: 200, smallRadius: 20, largeRadius: 13)
+                .stroke(.black, lineWidth: 1)
+            Spirograph()
+                .stroke(.black, lineWidth: 1)
+            Spirograph(scalar: 15, increment: 0.1, repetitions: 200, smallRadius: 0.6, largeRadius: 10)
+                .stroke(.black, lineWidth: 1)
+            Spirograph(scalar: 10, increment: 0.1, repetitions: 200, smallRadius: 6, largeRadius: 13)
+                .stroke(.black, lineWidth: 1)
+            Spirograph(scalar: 10, increment: 1, repetitions: 100, smallRadius: 24, largeRadius: 15)
+                .stroke(.black, lineWidth: 1)
+        }
     }
 }
 
