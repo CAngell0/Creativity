@@ -16,6 +16,8 @@ struct BobRossView: View {
                 .fill(ImagePaint(image: Image("Small"), scale: 0.8))
                 .overlay(Tree().stroke(.green, lineWidth: 10))
             MultiBasicShape()
+            MultiComplexShape()
+                .stroke(style: StrokeStyle(lineWidth: 2))
             
         }
     }
@@ -147,6 +149,92 @@ struct MultiBasicShape : Shape {
     
     func makeMirroredBasicShape(in rect: CGRect, position pos: CGPoint) -> Path {
         return verticalMirror(of: makeBasicShape(in: rect, position: pos), in: rect)
+    }
+}
+
+struct MultiComplexShape : Shape {
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        
+        for _ in 1...3 {
+            let pos = CGPoint(
+                x: Int(arc4random()) % Int(rect.maxX),
+                y: Int(arc4random()) % Int(rect.maxY)
+            )
+            path.addPath(makeComplexShape(in: rect, position: pos))
+        }
+        
+        return path
+    }
+    
+    func makeComplexShape(in rect: CGRect, position pos: CGPoint) -> Path {
+        var path = Path()
+        
+        var xPos = pos.x
+        var yPos = pos.y
+        
+        path.move(to: CGPoint(x: xPos, y: yPos))
+        xPos += 30
+        
+        path.addLine(to: CGPoint(x: xPos, y: yPos))
+        xPos += 20
+        yPos -= 20
+        
+        path.addLine(to: CGPoint(x: xPos, y: yPos))
+        yPos -= 30
+        
+        path.addLine(to: CGPoint(x: xPos, y: yPos))
+        xPos -= 30
+        
+        path.addLine(to: CGPoint(x: xPos, y: yPos))
+        xPos -= 20
+        yPos += 20
+        
+        path.addLine(to: CGPoint(x: xPos, y: yPos))
+        yPos += 30
+        
+        path.addLine(to: CGPoint(x: xPos, y: yPos))
+        xPos += 20
+        yPos -= 20
+        
+        path.addLine(to: CGPoint(x: xPos, y: yPos))
+        xPos += 10
+        
+        path.addLine(to: CGPoint(x: xPos, y: yPos))
+        yPos -= 10
+        
+        path.addLine(to: CGPoint(x: xPos, y: yPos))
+        xPos -= 10
+        
+        path.addLine(to: CGPoint(x: xPos, y: yPos))
+        yPos += 10
+        
+        path.addLine(to: CGPoint(x: xPos, y: yPos))
+        xPos -= 20
+        yPos += 20
+        
+        path.addLine(to: CGPoint(x: xPos, y: yPos))
+        xPos += 30
+        
+        path.addLine(to: CGPoint(x: xPos, y: yPos))
+        yPos -= 30
+        
+        path.addLine(to: CGPoint(x: xPos, y: yPos))
+        xPos += 20
+        yPos -= 20
+        
+        path.addLine(to: CGPoint(x: xPos, y: yPos))
+        xPos -= 20
+        yPos += 20
+        
+        path.addLine(to: CGPoint(x: xPos, y: yPos))
+        xPos -= 30
+        
+        path.addLine(to: CGPoint(x: xPos, y: yPos))
+        
+        path.closeSubpath()
+        
+        return path
     }
 }
 
