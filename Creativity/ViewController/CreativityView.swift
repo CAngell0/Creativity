@@ -46,6 +46,9 @@ struct CreativityView: View {
                         NavigationLink("Scribble Drawing 3", destination: ScribbleView())
                             .accessibilityLabel("Link to scribble drawing 3")
                             .accessibilityValue("Scribble Drawing 3")
+                        NavigationLink("Bob Ross Drawing", destination: BobRossView())
+                            .accessibilityLabel("Link to bob ross drawing")
+                            .accessibilityValue("Bob Ross Drawing")
                     }
                 }
                 .listStyle(.sidebar)
