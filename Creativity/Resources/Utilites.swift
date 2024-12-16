@@ -87,3 +87,27 @@ func horizontalMirror(of path : Path, in rect : CGRect) -> Path {
     
     return mirroredPath
 }
+
+//MARK: - Inclusive Gradients
+
+func createPrideGradient() -> LinearGradient {
+    let prideColors : [Color] = [.red, .red, .orange, .yellow, .green, .blue, .purple, .purple]
+    let gradient = LinearGradient(gradient: Gradient(colors: prideColors), startPoint: .top, endPoint: .bottom)
+    return gradient
+}
+
+func transInclusive(height : CGFloat) -> RadialGradient {
+    let colors = Gradient(colors: [.white, .pink, .blue, .brown, .black, .black])
+    let conic = RadialGradient(gradient: colors, center: .leading, startRadius: 1, endRadius: height / 2)
+    return conic
+}
+
+//MARK: - Adding functionaliy to View
+//TODO: - Add this to notes
+
+extension View {
+    public func gradientForeground(gradientColors : [Color]) -> some View {
+        self.overlay(LinearGradient(gradient: Gradient(colors: gradientColors), startPoint: .topLeading, endPoint: .bottomTrailing))
+            .mask(self)
+    }
+}
