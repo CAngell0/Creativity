@@ -13,16 +13,16 @@ struct ArtifactView: View {
         ZStack {
             VStack {
                 Text(artifact.title)
-                    .font(.headline)
+                    .font(.title)
                     .accessibilityLabel("Artifact Title")
                     .accessibilityValue(artifact.title)
-                Spacer()
                 Image(artifact.fileName)
                     .resizable()
                     .scaledToFit()
                     .accessibilityLabel("Artifact Image")
                 Text(artifact.description)
-                    .font(.caption2)
+                    .font(.callout)
+                    .multilineTextAlignment(.center)
                     .accessibilityLabel("Artifact Description")
                     .accessibilityValue(artifact.description)
             }

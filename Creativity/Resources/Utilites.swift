@@ -14,7 +14,7 @@ let haikuDocument = Bundle.main.url(forResource: "Haikus", withExtension: "pdf")
 
 //MARK: - Sample Artifact
 
-let sampleArtifact = Artifact(fileName: "Carson - Demo", title: "Mountain Artwork", description: "A piece of artwork I created a year ago.")
+let sampleArtifact = Artifact(fileName: "Java", title: "Java Haiku Writing", description: "A haiku poem I made about the Java programming language. With the subject being how files and classes interact in Java.")
 
 //MARK: - Load Haiku and Art artifacts
 //TODO: - Finish this method with all the artifacts
