@@ -48,6 +48,23 @@ struct CreativityView: View {
                             .accessibilityLabel("Link to bob ross drawing")
                             .accessibilityValue("Bob Ross Drawing")
                     }
+                    Section("Documents", isExpanded: $isShowingDocuments) {
+                        NavigationLink("Haiku Poems", destination: CustomPDFView(displayedPDFUrl: documents.Haiku))
+                            .accessibilityLabel("Link to Haiki Poems")
+                            .accessibilityValue("Haiku Poems")
+                        NavigationLink("Swift Code Review", destination: CustomPDFView(displayedPDFUrl: documents.CodeReview))
+                            .accessibilityLabel("Link to Swift Code Review")
+                            .accessibilityValue("Swift Code Review")
+                        NavigationLink("Custom Drawing Worksheet", destination: CustomPDFView(displayedPDFUrl: documents.DrawingWorksheet))
+                            .accessibilityLabel("Link to Custom Drawing Worksheet")
+                            .accessibilityValue("Custom Drawing Worksheet")
+                        NavigationLink("Shade Work Document", destination: CustomPDFView(displayedPDFUrl: documents.ShadeWork))
+                            .accessibilityLabel("Link to Shade Work Document")
+                            .accessibilityValue("Shade Work Document")
+                        NavigationLink("Written Responses", destination: CustomPDFView(displayedPDFUrl: documents.WrittenResponses))
+                            .accessibilityLabel("Link to Written Responses")
+                            .accessibilityValue("Written Responses")
+                    }
                 }
                 .listStyle(SidebarListStyle())
             }
