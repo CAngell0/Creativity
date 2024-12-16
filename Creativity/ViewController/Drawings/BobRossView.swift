@@ -275,24 +275,31 @@ struct MultiSimpleShape : Shape {
     }
     
     func makeSimpleShape(in rect: CGRect, position pos : CGPoint) -> Path {
-        var returnPath = Path()
-        var firstPath = Path()
-        var secondPath = Path()
+        var path = Path()
+        
+        path.addPath(makeFirstPath(in: rect, position: pos))
+        path.addPath(makeSecondPath(in: rect, position: pos))
+        
+        return path
+    }
+    
+    func makeFirstPath(in rect: CGRect, position pos : CGPoint) -> Path {
+        var path = Path()
         
         var xPos = pos.x + 5
         var yPos = pos.y + 5
         
-        firstPath.move(to: CGPoint(x: xPos, y: yPos))
+        path.move(to: CGPoint(x: xPos, y: yPos))
         xPos += 30
 
-        firstPath.addLine(to: CGPoint(x: xPos, y: yPos))
+        path.addLine(to: CGPoint(x: xPos, y: yPos))
         xPos += 20
         yPos += 30
         
-        firstPath.addLine(to: CGPoint(x: xPos, y: yPos))
+        path.addLine(to: CGPoint(x: xPos, y: yPos))
         xPos -= 20
         
-        firstPath.addArc(
+        path.addArc(
             center: CGPoint(x: xPos, y: yPos),
             radius: 20,
             startAngle: Angle(degrees: 0),
@@ -301,24 +308,30 @@ struct MultiSimpleShape : Shape {
         )
         yPos += 20
         
-        firstPath.addLine(to: CGPoint(x: xPos, y: yPos))
+        path.addLine(to: CGPoint(x: xPos, y: yPos))
         xPos -= 30
         yPos -= 20
         
-        firstPath.addLine(to: CGPoint(x: xPos, y: yPos))
-        firstPath.closeSubpath()
+        path.addLine(to: CGPoint(x: xPos, y: yPos))
+        path.closeSubpath()
         
-        xPos = pos.x + 50
-        yPos = pos.y + 50
+        return path
+    }
+    
+    func makeSecondPath(in rect: CGRect, position pos : CGPoint) -> Path {
+        var path = Path()
         
-        secondPath.move(to: CGPoint(x: xPos, y: yPos))
+        var xPos = pos.x + 50
+        var yPos = pos.y + 50
+        
+        path.move(to: CGPoint(x: xPos, y: yPos))
         xPos += 30
         
-        secondPath.addLine(to: CGPoint(x: xPos, y: yPos))
+        path.addLine(to: CGPoint(x: xPos, y: yPos))
         xPos -= 15
         yPos += 15
         
-        secondPath.addArc(
+        path.addArc(
             center: CGPoint(x: xPos, y: yPos),
             radius: 21.5,
             startAngle: Angle(degrees: 315),
@@ -328,11 +341,11 @@ struct MultiSimpleShape : Shape {
         xPos = pos.x + 50
         yPos = pos.y + 80
         
-        secondPath.addLine(to: CGPoint(x: xPos, y: yPos))
+        path.addLine(to: CGPoint(x: xPos, y: yPos))
         xPos += 15
         yPos -= 15
         
-        secondPath.addArc(
+        path.addArc(
             center: CGPoint(x: xPos, y: yPos),
             radius: 21.5,
             startAngle: Angle(degrees: 225),
@@ -340,13 +353,9 @@ struct MultiSimpleShape : Shape {
             clockwise: true
         )
         
-        secondPath.closeSubpath()
+        path.closeSubpath()
         
-        
-        returnPath.addPath(firstPath)
-        returnPath.addPath(secondPath)
-        
-        return returnPath
+        return path
     }
     
     func makeMirroredSimpleShape(in rect: CGRect, position pos: CGPoint) -> Path {
