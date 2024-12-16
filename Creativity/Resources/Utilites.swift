@@ -12,12 +12,19 @@ import SwiftUI
 
 let haikuDocument = Bundle.main.url(forResource: "Haikus", withExtension: "pdf")!
 
+let documents = (
+    Haiku: Bundle.main.url(forResource: "Haikus", withExtension: "pdf")!,
+    CodeReview: Bundle.main.url(forResource: "CodeReview", withExtension: "pdf")!,
+    DrawingWorksheet: Bundle.main.url(forResource: "DrawingWorksheet", withExtension: "pdf")!,
+    ShadeWork: Bundle.main.url(forResource: "ShadeWork", withExtension: "pdf")!,
+    WrittenResponses: Bundle.main.url(forResource: "WrittenResponses", withExtension: "pdf")!
+)
+
 //MARK: - Sample Artifact
 
 let sampleArtifact = Artifact(fileName: "Java", title: "Java Haiku Writing", description: "A haiku poem I made about the Java programming language. With the subject being how files and classes interact in Java.")
 
 //MARK: - Load Haiku and Art artifacts
-//TODO: - Finish this method with all the artifacts
 
 func loadArtworks() -> [Artifact] {
     let artworks : [Artifact] = [
@@ -36,6 +43,7 @@ func loadHaikus() -> [Artifact] {
     ]
     return haikus
 }
+
 
 //MARK: - Custom Color Section
 let blue : Color = Color(red: (66.0 / 255.0), green: (144.0 / 255.0), blue: (245.0 / 255.0))

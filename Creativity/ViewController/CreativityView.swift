@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct CreativityView: View {
-    let artifacts : [Artifact] = loadArtworks()
-    
     @State private var isShowingHaikus : Bool = false
     @State private var isShowingArtworks : Bool = false
     @State private var isShowingDrawings : Bool = false
@@ -26,7 +24,7 @@ struct CreativityView: View {
                                 .accessibilityValue(haiku.title)
                         }
                     }
-                    Section("Artwork Pieces", isExpanded: $isShowingArtworks) {
+                    Section("Artwork", isExpanded: $isShowingArtworks) {
                         ForEach(loadArtworks()){ artwork in
                             NavigationLink(artwork.title, destination: ArtifactView(artifact: artwork))
                                 .accessibilityLabel("Link for \(artwork.title)")
@@ -51,10 +49,9 @@ struct CreativityView: View {
                             .accessibilityValue("Bob Ross Drawing")
                     }
                 }
-                .listStyle(.sidebar)
+                .listStyle(SidebarListStyle())
             }
         }
-        .padding()
     }
 }
 
