@@ -21,18 +21,18 @@ let sampleArtifact = Artifact(fileName: "Carson - Demo", title: "Mountain Artwor
 
 func loadArtworks() -> [Artifact] {
     let artworks : [Artifact] = [
-        Artifact(fileName: "Mountain PolyArt", title: "Mountain Low-Poly Artwork", description: "A piece of artwork I designed for my home school library to put up. It uses small triangles/polygons of different color to create the image."),
-        Artifact(fileName: "Blue Waves", title: "BlueWaves Artwork", description: ""),
-        Artifact(fileName: "GraphicEye", title: "Graphic Eye Artwork", description: "")
+        Artifact(fileName: "MountainPoly", title: "Mountain Low-Poly Artwork", description: "A piece of artwork I designed for my home school library to put up. It uses small triangles/polygons of different color to create the image."),
+        Artifact(fileName: "BlueWaves", title: "BlueWaves Artwork", description: "A simple piece of abstract art that can be found on the internet. using different shade of blue in a wave like pattern. It was creates by someone named Dina."),
+        Artifact(fileName: "GraphicEye", title: "Graphic Eye Artwork", description: "A piece of artwork made by Ahmad Shabbir. Featuring an multcolored eye that shows realistic texture and form.")
     ]
     return artworks
 }
 
 func loadHaikus() -> [Artifact] {
     let haikus : [Artifact] = [
-        Artifact(fileName: "Swift Haiku", title: "Swift Haiku Writing", description: ""),
-        Artifact(fileName: "Java Haiku", title: "Java Haiku Writing", description: ""),
-        Artifact(fileName: "CompSci Haiku", title: "CompSci Haiku Writing", description: "")
+        Artifact(fileName: "Swift", title: "Swift Haiku Writing", description: "A haiku poem I made about the Swift programming language and the construction of Swift UI Views."),
+        Artifact(fileName: "Java", title: "Java Haiku Writing", description: "A haiku poem I made about the Java programming language. With the subject being how files and classes interact in Java."),
+        Artifact(fileName: "CompSci", title: "CompSci Haiku Writing", description: "A haiku poem I made about a general Computer Science conecpt. For loops vs while loops in code.")
     ]
     return haikus
 }
