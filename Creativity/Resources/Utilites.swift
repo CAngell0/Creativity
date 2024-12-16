@@ -97,7 +97,7 @@ func createPrideGradient() -> LinearGradient {
 }
 
 func transInclusive(height : CGFloat) -> RadialGradient {
-    let colors = Gradient(colors: [.white, .pink, .blue, .brown, .black, .black])
+    let colors = Gradient(colors: [.white, .red, .pink,.blue, Color(UIColor(red: 163 / 255, green: 133 / 255, blue: 51 / 255, alpha: 0.9)), .black, .black])
     let conic = RadialGradient(gradient: colors, center: .leading, startRadius: 1, endRadius: height / 2)
     return conic
 }
