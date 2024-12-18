@@ -67,6 +67,13 @@ struct CreativityView: View {
                     }
                 }
                 .listStyle(SidebarListStyle())
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        Text("Creativity")
+                            .font(.largeTitle)
+                            .gradientForeground(gradientColors: [.red, .gray, .blue])
+                    }
+                }
             }
         }
     }
